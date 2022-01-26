@@ -1,18 +1,13 @@
 name: Publish Docker
-
-on:
-  push:
-    branches:
-      - 'main'
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
-steps:
+    steps:
     - uses: actions/checkout@master
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: itgui/repository
+        name: myDocker/repository
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
